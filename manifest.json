@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "LLM Conversation Exporter",
+    "version": "1.0",
+    "description": "Export conversations from various LLM platforms",
+    "permissions": ["activeTab", "storage", "contextMenus"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://chat.openai.com/*", "*://claude.ai/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "icons": {
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
